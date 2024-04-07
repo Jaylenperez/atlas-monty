@@ -31,4 +31,14 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct args_s - hold variables
+ * @stream: File that connects to the stream from file
+ * @line: string which will be the line of text read from stream
+ * 
+ * Description: hold variables that will be used
+ * in different functions of the project as well as variables
+ * that will require memory allocation and freeing
+ */
+
 #endif
