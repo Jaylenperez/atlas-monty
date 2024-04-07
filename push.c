@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int line_number)
 
     arg = strtok(NULL, " \n\t");
 
-    if (arg == NULL || (!isdigit(*arg) && *arg != '-' && *arg != '+'))
+    if (arg == NULL || *arg == '\0' || !is_valid_int(arg))
     {
         fprintf(stderr, "L%u: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
@@ -37,4 +37,19 @@ void push(stack_t **stack, unsigned int line_number)
             (*stack)->prev = new_node;
     
     *stack = new_node;
+}
+
+int is_valid_int(const char *str)
+{
+    if (*str == '-' || *str == '+')
+        str++;
+    
+    while (*str)
+    {
+        if (!isdigit(*str))
+            return (0);
+        str++;
+    }
+
+    return (1);
 }
