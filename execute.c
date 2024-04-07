@@ -10,6 +10,7 @@
 void execute(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	printf("Executing opcode: %s\n", opcode);
+	
 	int i;
 	int found = 0;
 	instruction_t instructions[] = {
